@@ -1,0 +1,9 @@
+[Unit]
+Description=WiMazza timer login
+
+[Timer]
+OnUnitActiveSec=1min
+OnBootSec=10s
+
+[Install]
+WantedBy=timers.target

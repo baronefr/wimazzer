@@ -1,0 +1,6 @@
+[Unit]
+Description=WiMazza oneshot login
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/baronefr/wimazzer.sh
