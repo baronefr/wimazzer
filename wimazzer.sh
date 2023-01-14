@@ -5,7 +5,7 @@
 # ----------------------------------------
 #   coder : Barone Francesco
 #         :   https://github.com/baronefr/
-#   dated : 12 Jan 2023
+#   dated : 13 Jan 2023
 #     ver : 1.0.0
 # ========================================
 
@@ -32,7 +32,7 @@ check_essid=true
 WIMAZZA_STATUS_link="http://mt.wiffi.it/status"
 wimazza_status_discriminant="Welcome"
 
-wimazza_status_essid=("Wi-Mazza") # list here the aliases for Wi-Mazza network
+wimazza_status_essid=("Wi-Mazza" "Wi-Linuz") # list here the aliases for Wi-Mazza network
 
 WIMAZZA_LOGIN_link="http://mt.wiffi.it/login?username=${USERNAME}&password=${PASSWORD}"
 
@@ -58,15 +58,24 @@ fi
 PAGE=$(wget -qO- $WIMAZZA_STATUS_link)
 # PAGE=$(curl -s $WIMAZZA_STATUS_link)   # if you prefer curl
 
-# check if discriminant is in page
+# check if discriminant is in page ...
 if [[ $PAGE =~ $wimazza_status_discriminant ]]; then
     echo "Humilitas! You are already logged to Wi-Mazza."
     exit 0
 fi
 
-# otherwise goto login link
-wget -qO- $WIMAZZA_LOGIN_link
-# curl -s $WIMAZZA_LOGIN_link            # if you prefer curl
 
-echo "Wi-Mazza login requested."
+# ... otherwise goto login link
+PAGE=$(wget -qO- $WIMAZZA_LOGIN_link)
+# PAGE=$(curl -s $WIMAZZA_LOGIN_link)    # if you prefer curl
+
+# check if login is successful
+if [[ $PAGE =~ "You are logged in" ]]; then
+    echo "WM login has been successful."
+else
+    echo "WM login requested, but wrong return page."
+    exit 1
+fi
+
+
 exit 0
