@@ -1,6 +1,6 @@
-# wimazzer
+# WiMazzer
 
-A login script for Wi-Mazza, my college wifi in Padua. Linux only.
+A login script for Wi-Mazza, my college wifi in Padua.
 
 ![Linux ok](https://img.shields.io/badge/supported-Linux-brightgreen)
 ![Windows nope](https://img.shields.io/badge/nope-Windows-red)
@@ -26,13 +26,21 @@ chmod +x wimazzer.sh
 ```
 
 <br>
+
 *nota)* A questo punto potresti già eseguire lo script per testare il login (`./wimazzer.sh`). Potresti aggiungere un *alias* al tuo bashrc per richiamare velocemente lo script con un comando, oppure impostare l'esecuzione automatica (segui il resto delle istruzioni).
+
 <br>
 
 **4)** Modifica il file `wimazza.service` con il percorso completo al file eseguibile. Puoi trovare il percorso completo alla cartella corrente con il comando `pwd`. Ad esempio, se hai scaricato questo repo nella tua home, la riga 6 del file `wimazza.service` dovrà essere
 ```bash
 ExecStart=/bin/bash /home/baronefr/wimazzer/wimazzer.sh
 ```
+
+<br>
+
+*nota)* Se vuoi modificare i timing di esecuzione dello script, guarda adesso [questa sezione](#controllo-del-timing).
+
+<br>
 
 **5)** Copia i servizi systemd.
 ```bash
@@ -43,6 +51,9 @@ sudo cp wimazza.* /etc/systemd/system/
 ```bash
 sudo systemctl enable wimazza.timer
 ```
+
+
+<br><br>
 
 
 ### controllo del timing
@@ -59,8 +70,7 @@ OnBootSec=10s
 ```
 
 Ti ricordo che se hai già completato l'installazione, al fine di modificare i timing devi **ricopiare i file modificati in systemd**, quindi riesegui i passaggi 5 e 6.
-:)
 
 ***
 
-Barone Francesco - github.com/baronefr/
+Barone Francesco - [git@baronefr](github.com/baronefr/)
