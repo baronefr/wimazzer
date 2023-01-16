@@ -5,8 +5,8 @@
 # ----------------------------------------
 #   coder : Barone Francesco
 #         :   https://github.com/baronefr/
-#   dated : 13 Jan 2023
-#     ver : 1.0.0
+#   dated : 14 Jan 2023
+#     ver : 1.0.1
 # ========================================
 
 
@@ -32,7 +32,7 @@ check_essid=true
 WIMAZZA_STATUS_link="http://mt.wiffi.it/status"
 wimazza_status_discriminant="Welcome"
 
-wimazza_status_essid=("Wi-Mazza" "Wi-Linuz") # list here the aliases for Wi-Mazza network
+wimazza_status_essid=("Wi-Mazza") # list here the aliases for Wi-Mazza network
 
 WIMAZZA_LOGIN_link="http://mt.wiffi.it/login?username=${USERNAME}&password=${PASSWORD}"
 

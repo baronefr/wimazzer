@@ -60,13 +60,13 @@ sudo systemctl enable wimazza.timer
 
 Modificando il file `wimazza.timer` si potrà controllare il timing di esecuzione dello script. 
 - `OnUnitActiveSec` (default: 1min): il tempo che intercorre tra un controllo del login e il successivo.
-- `OnBootSec` (default: 10s): il tempo di attesa dell'esecuzione all'avvio del sistema.
+- `OnBootSec` (default: 20s): il tempo di attesa dell'esecuzione all'avvio del sistema.
 
 Di default, il file appare:
 ```bash
 [Timer]
 OnUnitActiveSec=1min
-OnBootSec=10s
+OnBootSec=20s
 ```
 
 Ti ricordo che se hai già completato l'installazione, al fine di modificare i timing devi **ricopiare i file modificati in systemd**, quindi riesegui i passaggi 5 e 6.
