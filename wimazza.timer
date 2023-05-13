@@ -3,7 +3,7 @@ Description=WiMazza timer login
 
 [Timer]
 OnUnitActiveSec=1min
-OnBootSec=20s
+OnActiveSec=5s
 
 [Install]
 WantedBy=timers.target
